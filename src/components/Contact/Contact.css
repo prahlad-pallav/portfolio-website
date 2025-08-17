@@ -110,6 +110,11 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.08);
   position: relative;
   z-index: 1;
+  transition: transform 0.3s ease;
+}
+
+.info-item:hover {
+  transform: translateX(10px);
 }
 
 .info-item:first-child {
@@ -348,6 +353,7 @@
   position: relative;
   overflow: hidden;
   z-index: 1;
+  min-height: 52px;
 }
 
 .submit-button::before {
@@ -512,10 +518,16 @@
 
   .info-item {
     padding: 2rem 0;
+    gap: 1.5rem;
+  }
+
+  .info-item:hover {
+    transform: translateX(5px);
   }
 
   .social-links {
     justify-content: center;
+    gap: 1.2rem;
   }
 
   .info-item i {
@@ -547,11 +559,191 @@
   .form-field textarea:not(:placeholder-shown) + label {
     transform: translateY(-1.8rem) scale(0.8);
   }
+
+  .submit-button {
+    padding: 1rem;
+    font-size: 1rem;
+    min-height: 48px;
+  }
 }
 
+@media (max-width: 480px) {
+  .contact {
+    padding: 3rem 1rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .section-title::before {
+    font-size: 2.5rem;
+    top: -30%;
+  }
+
+  .contact-content {
+    gap: 2rem;
+  }
+
+  .contact-form {
+    padding: 2rem;
+    border-radius: 15px;
+  }
+
+  .contact-info {
+    padding: 2rem;
+    border-radius: 15px;
+  }
+
+  .info-item {
+    padding: 1.5rem 0;
+    gap: 1rem;
+  }
+
+  .info-item i {
+    width: 36px;
+    height: 36px;
+    font-size: 1.3rem;
+  }
+
+  .info-details h3 {
+    font-size: 1.1rem;
+  }
+
+  .info-details p,
+  .info-details a {
+    font-size: 0.85rem;
+  }
+
+  .social-links {
+    gap: 1rem;
+  }
+
+  .social-links a {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .form-field input,
+  .form-field textarea {
+    font-size: 0.95rem;
+    padding: 0.7rem 0;
+  }
+
+  .form-field label {
+    font-size: 0.95rem;
+  }
+
+  .form-field.focused label,
+  .form-field input:not(:placeholder-shown) + label,
+  .form-field textarea:not(:placeholder-shown) + label {
+    transform: translateY(-1.6rem) scale(0.8);
+  }
+
+  .submit-button {
+    padding: 0.9rem;
+    font-size: 0.95rem;
+    min-height: 44px;
+  }
+
+  .form-message {
+    padding: 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .info-item {
+    min-height: 44px;
+  }
+
+  .social-links a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  .submit-button {
+    min-height: 48px;
+  }
+
+  .info-item:active {
+    transform: translateX(3px);
+  }
+
+  .social-links a:active {
+    transform: translateY(-2px);
+  }
+
+  .submit-button:active {
+    transform: translateY(-1px);
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .contact {
+    padding: 3rem 1.5rem;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .contact-form,
+  .contact-info {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
+  .contact::before {
+    animation: none;
+  }
+
+  .info-item,
+  .info-item i,
+  .social-links a,
+  .submit-button {
+    transition: none;
+  }
+
+  .info-item:hover,
+  .info-item:active {
+    transform: none;
+  }
+
+  .info-item:hover i {
+    transform: none;
+  }
+
+  .social-links a:hover,
+  .social-links a:active {
+    transform: none;
+  }
+
+  .submit-button:hover,
+  .submit-button:active {
+    transform: none;
+  }
+
+  .form-field input,
+  .form-field textarea,
+  .form-field label,
+  .form-field .field-border {
+    transition: none;
   }
 } 

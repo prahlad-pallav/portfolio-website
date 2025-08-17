@@ -36,6 +36,12 @@
   animation: scaleIn 0.8s ease forwards;
   animation-delay: 0.2s;
   opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-section:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
 }
 
 .profile-header {
@@ -56,6 +62,11 @@
   animation: scaleIn 0.8s ease forwards;
   animation-delay: 0.4s;
   opacity: 0;
+  transition: transform 0.3s ease;
+}
+
+.profile-image:hover {
+  transform: scale(1.05);
 }
 
 .profile-image::after {
@@ -139,6 +150,8 @@
   flex: 1;
   justify-content: center;
   white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
 }
 
 .quick-info span i {
@@ -165,6 +178,12 @@
   border-radius: 15px;
   padding: 2rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.journey-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .section-subtitle {
@@ -202,6 +221,12 @@
   animation: slideInLeft 0.8s ease forwards;
   animation-delay: 0.4s;
   opacity: 0;
+  transition: transform 0.3s ease;
+}
+
+.experience-section:hover,
+.education-section:hover {
+  transform: translateY(-2px);
 }
 
 .timeline {
@@ -257,12 +282,14 @@
   background: var(--background-light);
   padding: 1.5rem;
   border-radius: 8px;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   position: relative;
+  cursor: pointer;
 }
 
 .timeline-content:hover {
   transform: translateX(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .timeline-content h4 {
@@ -367,6 +394,12 @@
   animation: fadeInUp 0.8s ease forwards;
   animation-delay: 1.6s;
   opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
 }
 
 .skills-grid {
@@ -422,6 +455,9 @@
   border-radius: 20px;
   font-size: 0.9rem;
   transition: all 0.3s ease;
+  cursor: pointer;
+  user-select: none;
+  border: 1px solid rgba(0, 123, 255, 0.1);
 }
 
 .skill-tag:hover {
@@ -431,6 +467,55 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Extra Curricular Section */
+.extracurricular-section {
+  background: var(--white);
+  border-radius: 15px;
+  padding: 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-top: 2rem;
+  animation: fadeInUp 0.8s ease forwards;
+  animation-delay: 1.8s;
+  opacity: 0;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.extracurricular-section:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.15);
+}
+
+.extracurricular-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.activity-section {
+  background: var(--background-light);
+  border-radius: 12px;
+  padding: 1.5rem;
+  animation: slideInLeft 0.8s ease forwards;
+  opacity: 0;
+  transition: transform 0.3s ease;
+}
+
+.activity-section:hover {
+  transform: translateY(-2px);
+}
+
+.activity-section:first-child {
+  animation: slideInLeft 0.8s ease forwards;
+  animation-delay: 2s;
+}
+
+.activity-section:last-child {
+  animation: slideInRight 0.8s ease forwards;
+  animation-delay: 2s;
+}
+
+/* Responsive Design */
 @media (max-width: 1024px) {
   .journey-grid {
     grid-template-columns: 1fr;
@@ -439,6 +524,15 @@
 
   .experience-section,
   .education-section {
+    padding: 1.5rem;
+  }
+
+  .extracurricular-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .activity-section {
     padding: 1.5rem;
   }
 }
@@ -502,6 +596,7 @@
   .quick-info span {
     width: 100%;
     justify-content: flex-start;
+    min-height: 44px;
   }
 
   .skills-grid {
@@ -522,6 +617,247 @@
   .profile-image {
     width: 150px;
     height: 150px;
+  }
+
+  .profile-section,
+  .journey-section,
+  .skills-section,
+  .extracurricular-section {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about {
+    padding: 3rem 0.8rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .about-grid {
+    gap: 2rem;
+  }
+
+  .profile-section,
+  .journey-section,
+  .skills-section,
+  .extracurricular-section {
+    padding: 1.2rem;
+    border-radius: 10px;
+  }
+
+  .profile-header {
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .profile-image {
+    width: 120px;
+    height: 120px;
+  }
+
+  .profile-intro h3 {
+    font-size: 1.5rem;
+  }
+
+  .profile-intro .title {
+    font-size: 1.1rem;
+  }
+
+  .profile-description {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .quick-info {
+    gap: 0.8rem;
+  }
+
+  .quick-info span {
+    padding: 0.7rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .quick-info span i {
+    font-size: 1.1rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .journey-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .timeline {
+    padding-left: 1.5rem;
+  }
+
+  .timeline-item {
+    padding-left: 1.5rem;
+    padding-bottom: 2rem;
+  }
+
+  .timeline-content {
+    padding: 1rem;
+  }
+
+  .timeline-content h4 {
+    font-size: 1rem;
+  }
+
+  .timeline-content .company {
+    font-size: 0.9rem;
+    padding: 0.2rem 0.8rem;
+  }
+
+  .location-badge {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .timeline-content .description {
+    font-size: 0.85rem;
+  }
+
+  .timeline-period {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.8rem;
+  }
+
+  .skills-grid {
+    gap: 1.5rem;
+  }
+
+  .skill-category h4 {
+    font-size: 1.1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  .skill-items {
+    gap: 0.6rem;
+  }
+
+  .skill-tag {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.85rem;
+  }
+
+  .extracurricular-grid {
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .activity-section {
+    padding: 1.2rem;
+  }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+  .profile-section,
+  .journey-section,
+  .skills-section,
+  .extracurricular-section,
+  .experience-section,
+  .education-section,
+  .activity-section {
+    min-height: 44px;
+  }
+
+  .quick-info span,
+  .skill-tag,
+  .timeline-content {
+    min-height: 44px;
+  }
+
+  .profile-section:active,
+  .journey-section:active,
+  .skills-section:active,
+  .extracurricular-section:active {
+    transform: translateY(-2px);
+  }
+
+  .quick-info span:active,
+  .skill-tag:active {
+    transform: translateY(-1px);
+  }
+
+  .timeline-content:active {
+    transform: translateX(3px);
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .about {
+    padding: 3rem 1rem;
+  }
+
+  .journey-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .extracurricular-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .profile-image img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+}
+
+/* Reduced motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .profile-section,
+  .journey-section,
+  .skills-section,
+  .extracurricular-section,
+  .experience-section,
+  .education-section,
+  .activity-section,
+  .quick-info span,
+  .skill-tag,
+  .timeline-content,
+  .profile-image {
+    transition: none;
+  }
+
+  .profile-section:hover,
+  .journey-section:hover,
+  .skills-section:hover,
+  .extracurricular-section:hover,
+  .experience-section:hover,
+  .education-section:hover,
+  .activity-section:hover {
+    transform: none;
+  }
+
+  .quick-info span:hover,
+  .skill-tag:hover,
+  .timeline-content:hover {
+    transform: none;
+  }
+
+  .profile-image:hover {
+    transform: none;
+  }
+
+  .timeline-item:hover .timeline-icon {
+    transform: none;
   }
 }
 
@@ -567,91 +903,6 @@
   to {
     opacity: 1;
     transform: scale(1);
-  }
-}
-
-/* Enhanced hover effects */
-.timeline-content {
-  transition: all 0.3s ease;
-}
-
-.timeline-content:hover {
-  transform: translateX(10px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-.skill-tag {
-  transition: all 0.3s ease;
-}
-
-.skill-tag:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Responsive animations */
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
-}
-
-/* Extra Curricular Section */
-.extracurricular-section {
-  background: var(--white);
-  border-radius: 15px;
-  padding: 2rem;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-  margin-top: 2rem;
-  animation: fadeInUp 0.8s ease forwards;
-  animation-delay: 1.8s;
-  opacity: 0;
-}
-
-.extracurricular-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.activity-section {
-  background: var(--background-light);
-  border-radius: 12px;
-  padding: 1.5rem;
-  animation: slideInLeft 0.8s ease forwards;
-  opacity: 0;
-}
-
-.activity-section:first-child {
-  animation: slideInLeft 0.8s ease forwards;
-  animation-delay: 2s;
-}
-
-.activity-section:last-child {
-  animation: slideInRight 0.8s ease forwards;
-  animation-delay: 2s;
-}
-
-@media (max-width: 1024px) {
-  .extracurricular-grid {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
-
-  .activity-section {
-    padding: 1.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .extracurricular-section {
-    padding: 1.5rem;
-  }
-
-  .activity-section {
-    padding: 1.2rem;
   }
 }
 
@@ -702,4 +953,4 @@
   .education-section .company-info {
     align-items: center;
   }
-} 
+}

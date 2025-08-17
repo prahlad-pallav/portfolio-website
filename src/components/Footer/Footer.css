@@ -63,12 +63,14 @@
   justify-content: center;
   gap: 0.5rem;
   animation: fadeInUp 0.8s ease 0.2s backwards;
+  flex-wrap: wrap;
 }
 
 .heart {
   display: inline-block;
   animation: heartbeat 1.5s ease infinite;
   transform-origin: center;
+  color: #e74c3c;
 }
 
 .footer-credit {
@@ -113,6 +115,17 @@
   }
 }
 
+/* Tablet Responsive */
+@media (max-width: 1024px) {
+  .footer {
+    padding: 1.8rem 0;
+  }
+
+  .footer-name {
+    font-size: 1.9rem;
+  }
+}
+
 @media (max-width: 768px) {
   .footer {
     padding: 1.5rem 0;
@@ -130,8 +143,67 @@
   .footer-credit {
     font-size: 0.9rem;
   }
+
+  .footer-content {
+    gap: 0.8rem;
+  }
 }
 
+@media (max-width: 480px) {
+  .footer {
+    padding: 1.2rem 0;
+    margin-top: 1.5rem;
+  }
+
+  .footer-container {
+    padding: 0 1rem;
+  }
+
+  .footer-name {
+    font-size: 1.6rem;
+  }
+
+  .footer-copyright,
+  .footer-credit {
+    font-size: 0.85rem;
+  }
+
+  .footer-content {
+    gap: 0.6rem;
+  }
+
+  .footer-copyright {
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+}
+
+/* Landscape orientation for mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .footer {
+    padding: 1rem 0;
+  }
+
+  .footer-content {
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+  }
+
+  .footer-copyright {
+    flex-direction: row;
+  }
+}
+
+/* High DPI displays */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .footer-name {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Reduced motion preferences */
 @media (prefers-reduced-motion: reduce) {
   .heart {
     animation: none;

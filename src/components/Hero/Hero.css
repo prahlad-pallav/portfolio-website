@@ -379,7 +379,7 @@
   }
 
   .social-links {
-    justify-content: center;
+    justify-content: flex-start !important;
     gap: 1rem;
   }
 
